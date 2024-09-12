@@ -1,19 +1,19 @@
-type Category = {
+interface ICategory {
   id: number;
   name: string;
-};
+}
 
-type Product = {
+interface IProduct {
   id: number;
   name: string;
   description: string;
   price: number;
   quantity: number;
-  category: Category;
-};
+  category: ICategory;
+}
 
-interface ProductsData {
-  content: Product[];
+interface IProductsData {
+  content: IProduct[];
   first: boolean;
   last: boolean;
   number: number;
@@ -22,4 +22,4 @@ interface ProductsData {
   totalPages: number;
 }
 
-export type { Category, Product, ProductsData };
+export type { ICategory, IProduct, IProductsData };

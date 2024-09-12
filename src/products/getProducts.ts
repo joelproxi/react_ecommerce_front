@@ -1,11 +1,15 @@
-import { ProductsData } from "./typeProducts";
+
+import {assertIsProducts} from "./productAssertions";
 
 export default async function getProducts(REACT_APP_BASE_API: string) {
   const response = await fetch(REACT_APP_BASE_API, {
     headers: {
-      "Content-Type": "applicartion/json",
+      "Content-Type": "application/json",
     },
   });
-  const body = (await response.json()) as ProductsData;
+  const body = (await response.json()) as unknown;
+  assertIsProducts(body)
   return body;
 }
+
+
